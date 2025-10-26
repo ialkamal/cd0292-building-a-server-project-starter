@@ -1,7 +1,7 @@
 import sharp from "sharp";
 import fs from "fs";
 
-const path = __dirname.split("\\").splice(0, 7).join("\\");
+const path = __dirname.split("\\").splice(0, 6).join("\\");
 
 const imageError = new Error("Image does not exist.");
 const imageResizeError = new Error("Error resizing image.");
@@ -10,6 +10,7 @@ const thumbnailStorageError = new Error("Error storing thumbnail.");
 //Function to resize image to thumbnail
 const resizeImage = async (filename: string, width: number, height: number) => {
     const image_path: string = `${path}/images/${filename}.jpg`;
+
     if (!fs.existsSync(image_path)) {
         throw imageError;
     }
